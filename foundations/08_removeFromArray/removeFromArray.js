@@ -1,16 +1,18 @@
 const removeFromArray = function(arrList, ...argValues) {
 
-	for (let j = 0; j <= argValues.length - 1; j++) {
-			
-			let position = arrList.indexOf(argValues[j]);
-			if (position >= 0)
-				arrList.splice(position, 1);
-	}
+	let newArray = arrList;
 
-	return (arrList);
+	for (let i = 0; i <= argValues.length - 1; i++) {
+
+		newArray = newArray.filter((element) => element !== argValues[i]);
+	}
+	return (newArray);
+
+
+//	return (arrList.filter((element) => !argValues.includes(element)));
 };
 
-console.log(removeFromArray([1, 2, 2, 4], 2, 5, 7, 1));
+console.log(removeFromArray([1, 2, 2,  4], 2, 5, 7));
 
 // Do not edit below this line
 module.exports = removeFromArray;
